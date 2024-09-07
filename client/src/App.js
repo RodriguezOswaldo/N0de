@@ -11,7 +11,6 @@ function App() {
       <Greeting/>
       <AttendanceList/>
       <ProjectsList/>
-      {/* <morehere/> */}
       <CurriculumList/>
     </div>
   );
