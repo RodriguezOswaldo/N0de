@@ -11,6 +11,9 @@ function App() {
       <Greeting/>
       <AttendanceList/>
       <ProjectsList/>
+
+
+      
       <CurriculumList/>
     </div>
   );
