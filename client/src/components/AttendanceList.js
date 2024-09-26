@@ -3,15 +3,16 @@ import axios from 'axios';
 
 const AttendanceList = () =>{
     const [attendance, setAttendance] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/api/attendance')
+        axios.get(`${apiUrl}/api/attendance`)
         .then(response =>{
             setAttendance(response.data);
         }).catch(error =>{
             console.error('Error fetching attendance:', error);
         });
-    }, []);
+    }, [apiUrl]);
         return(
             <div>
                 <h1>Attendance</h1>

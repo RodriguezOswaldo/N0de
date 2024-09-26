@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import { getProjects } from '../apiService';
+import axios from 'axios';
 
 const ProjectList =()=>{
     const [projects, setProjects] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(()=>{
-        getProjects().then(response=>{
+        axios.get(`${apiUrl}/api/projects`)
+        .then(response=>{
             setProjects(response.data);
         }).catch(error=>{
             console.error('Error fetching projects:', error);
         });
-    }, []);
+    }, [apiUrl]);
     return(
         <div>
         <h1>Projects</h1>
