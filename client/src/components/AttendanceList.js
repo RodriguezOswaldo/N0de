@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { getAttendance } from '../apiService';
-import { response } from 'express';
+import axios from 'axios';
 
 const AttendanceList = () =>{
     const [attendance, setAttendance] = useState([]);
 
     useEffect(()=>{
-        getAttendance().then(response =>{
+        axios.get('http://localhost:4000/api/attendance')
+        .then(response =>{
             setAttendance(response.data);
         }).catch(error =>{
             console.error('Error fetching attendance:', error);

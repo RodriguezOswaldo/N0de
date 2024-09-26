@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { getProjects } from '../apiService';
-import { response } from 'express';
 
 const ProjectList =()=>{
     const [projects, setProjects] = useState([]);
