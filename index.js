@@ -7,9 +7,15 @@ const projects = require('./models/project');
 const curriculum = require('./models/curriculum');
 
 
+app.use(cors({
+    origin:'http://localhost:3000',
+    methods:['GET', 'POST', 'PUT', 'DELETE'],
+}))
 
 
-// Example routes for curriculums
+app.use(express.json());
+
+//routes for curriculums
 app.get('/api/curriculums', async (req, res) => {
     try {
         const result = await curriculum.getAllCurriculums();
@@ -28,7 +34,7 @@ app.post('/api/curriculums', async (req, res) => {
         res.status(500).json({ error: 'Failed to add curriculum' });
     }
 });
-// Example routes
+//  routes for attendance
 app.get('/api/attendance', async (req, res) => {
     try {
         const result = await attendance.getAllAttendance();
@@ -48,6 +54,7 @@ app.post('/api/attendance', async (req, res) => {
     }
 });
 
+//routes for projects
 app.get('/api/projects', async (req, res) => {
     try {
         const result = await projects.getAllProjects();
@@ -66,11 +73,10 @@ app.post('/api/projects', async (req, res) => {
         res.status(500).json({ error: 'Failed to add project' });
     }
 });
-app.use(cors());
-app.use(express.json());
 
+//Simple greeting Root
 app.get('/api/greeting', (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
+    res.json({ message: 'Hello from the backend!'});
 });
 
 app.listen(port, () => {
