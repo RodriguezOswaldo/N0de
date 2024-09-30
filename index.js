@@ -53,7 +53,6 @@ app.post('/api/attendance', async (req, res) => {
         res.status(500).json({ error: 'Failed to add attendance' });
     }
 });
-
 //routes for projects
 app.get('/api/projects', async (req, res) => {
     try {
