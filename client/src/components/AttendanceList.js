@@ -24,4 +24,5 @@ const AttendanceList = () =>{
             </div>
         );
     };
+    
 export default AttendanceList;
